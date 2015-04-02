@@ -1,13 +1,20 @@
 source 'https://rubygems.org'
+#import bootstrap css framework
+gem 'bootstrap-sass'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
+
 # modified per bloc specs
 group :production do
    gem 'pg'
    gem 'rails_12factor'
+   #to correct error noted when pushing master to heroku
+	ruby '2.0.0'
 end
+# end bloc modfication
+
 group :development do
    gem 'sqlite3'
  end

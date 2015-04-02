@@ -11,7 +11,7 @@ group :production do
    gem 'pg'
    gem 'rails_12factor'
    #to correct error noted when pushing master to heroku
-	ruby '2.0.0'
+	##ruby '2.0.0'
 end
 # end bloc modfication
 

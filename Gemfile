@@ -6,6 +6,9 @@ gem 'bootstrap-sass'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 
+# added 4//3/1 https://github.com/rweng/pry-rails#installation
+gem 'pry-rails', :group => :development
+
 # modified per bloc specs
 group :production do
    gem 'pg'
@@ -29,6 +32,9 @@ gem 'coffee-rails', '~> 4.1.0'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
+
+#added Faker to generate dev database entries on 04.03.2015
+gem 'faker'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder

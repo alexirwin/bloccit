@@ -16,6 +16,13 @@ require 'faker'
 end
 posts =Post.all
 
+if Post.where(title: 'Unique Seed').take  == nil 
+	Post.create!(
+	 	title: 	"Unique Seed",
+	 	body: 	"Unique Seed Body"
+	 	)
+end
+
 #Create Comments
 100.times do
 	Comment.create!(

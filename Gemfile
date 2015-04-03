@@ -16,6 +16,10 @@ end
 # end bloc modfication
 
 group :development do
+  gem "rails-erd"
+end
+
+group :development do
    gem 'sqlite3'
  end
 # Use SCSS for stylesheets

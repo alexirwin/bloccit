@@ -1,0 +1,13 @@
+<h1>All Advertisements</h1>
+<% @advertisements.each do |advertisement| %>
+<div class="media">
+	<div class="media-body">
+		<table class="table table-condensed table-bordered" style= "width: 75%">
+			<tr class="media-heading">
+				<td style = "width: 20%">Imagine a logo here</td> 
+					<td ><%= link_to advertisement.title, advertisement %></td>
+				<td style = "width: 20%"><small>SPONSORED LINK</small></td>
+			</tr>
+	</div>
+</div>
+<% end %>

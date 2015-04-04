@@ -1,0 +1,16 @@
+<h1 class="media-heading"><%= @advertisement.title %></h1>
+<div class="media">
+<h4 class="media-heading"><small>SPONSORED LINK</small></h4>
+</div>
+<div class="media">
+	<div class="col-md-10 col-md-push-2">
+		<h2 class="media-heading">
+			<%= @advertisement.copy %>
+		</h2>
+	</div>
+	<div class="col-md-2 col-md-pull-10">
+		<h2 class="media-heading">
+			<small>$ <%= @advertisement.price.to_f/100 %></small>
+		</h2>
+	</div>
+</div>

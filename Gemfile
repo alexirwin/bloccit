@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 #import bootstrap css framework
 gem 'bootstrap-sass'
 
+###add figaro to secure environmental variables (API keys, passwords, etc.)
+gem 'figaro', '1.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'

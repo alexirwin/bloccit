@@ -35,11 +35,14 @@ gem 'coffee-rails', '~> 4.1.0'
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 
-#added Faker to generate dev database entries on 04.03.2015
+# added Faker to generate dev database entries on 04.03.2015
 gem 'faker'
 
 # adding devise for user authentication
 gem 'devise'
+
+# Adding Pundit for user roles/ authorization
+gem 'pundit'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'

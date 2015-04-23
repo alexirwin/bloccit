@@ -1,5 +1,27 @@
 class PostPolicy < ApplicationPolicy
-	def index?
-		true
+
+	class Scope < Scope
+		def resolve
+			if user.present?
+				if user.admin? || user.moderator? 
+					scope.all
+				else
+				# elsif record.user  == user
+					scope.where(:published => true)
+				end	
+			else
+				scope
+			end
+		end
 	end
+
+	def index?
+		user.present?
+	end
+
+	def update?
+		user.admin? or not post.published?
+	end
+	
 end
+

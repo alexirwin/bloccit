@@ -6,11 +6,11 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters
 
   rescue_from Pundit::NotAuthorizedError do |exception|
-    redirect_to root_url, alert: exception.message
+    redirect_to root_url, alert: "You are not authorized to perform that function."
   end
   
-  def flash_attack 
-       flash[:notice] = "This is a flash notice!"
+  rescue_from Pundit::NotDefinedError do |exception|
+    redirect_to root_url, alert: "You must be logged in to perform that function."
   end
 
  protected

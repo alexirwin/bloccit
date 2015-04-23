@@ -5,11 +5,11 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable, :confirmable
          has_many :posts
 
-        def admin?
-         	 role == 'admin'
-     	end
+  def admin?
+    role == 'admin'
+ 	end
 
-     	def moderator?
-     		role == 'moderator'
-        end 		
+ 	def moderator?
+ 		role == 'moderator'
+  end 		
 end

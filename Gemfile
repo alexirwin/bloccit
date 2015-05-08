@@ -18,7 +18,10 @@ group :production do
    #to correct error noted when pushing master to heroku
 	##ruby '2.0.0'
 end
-# end bloc modfication
+# end bloc modification
+
+#install redcarpet for markdown
+gem 'redcarpet'
 
 group :development do
    gem 'sqlite3'

@@ -16,8 +16,7 @@ gem 'pry-rails', :group => :development
   gem 'mini_magick'
   
   # Amazon S3 storage helper for image storage
-  gem "fog", "~> 1.3.1"
-
+  gem "fog"
 # modified per bloc specs
 group :production do
    gem 'pg'

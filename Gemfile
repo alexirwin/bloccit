@@ -72,5 +72,12 @@ group :development, :test do
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
+
+  #Image upload helpers
+  gem 'carrierwave'
+  gem 'mini_magick'
+  
+  # Amazon S3 storage helper for image storage
+  gem 'fog'
 end
 

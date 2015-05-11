@@ -11,6 +11,13 @@ gem 'rails', '4.2.0'
 # added 4//3/1 https://github.com/rweng/pry-rails#installation
 gem 'pry-rails', :group => :development
 
+ #Image upload helpers
+  gem 'carrierwave'
+  gem 'mini_magick'
+  
+  # Amazon S3 storage helper for image storage
+  gem "fog", "~> 1.3.1"
+
 # modified per bloc specs
 group :production do
    gem 'pg'
@@ -73,11 +80,11 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-  #Image upload helpers
-  gem 'carrierwave'
-  gem 'mini_magick'
+#   #Image upload helpers
+#   gem 'carrierwave'
+#   gem 'mini_magick'
   
-  # Amazon S3 storage helper for image storage
-  gem 'fog-aws'
-end
+#   # Amazon S3 storage helper for image storage
+#   gem "fog", "~> 1.3.1"
+# end
 

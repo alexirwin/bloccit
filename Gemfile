@@ -86,5 +86,5 @@ group :development, :test do
   
 #   # Amazon S3 storage helper for image storage
 #   gem "fog", "~> 1.3.1"
-# end
+end
 

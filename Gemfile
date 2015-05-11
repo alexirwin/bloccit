@@ -78,6 +78,6 @@ group :development, :test do
   gem 'mini_magick'
   
   # Amazon S3 storage helper for image storage
-  gem 'fog'
+  gem 'fog-aws'
 end
 

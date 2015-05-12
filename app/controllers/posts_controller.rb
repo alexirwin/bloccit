@@ -1,14 +1,11 @@
 class PostsController < ApplicationController
 # skip_before_action :flash_attack, only: [:index, :new]
-
-  # def index
-  # 	@posts = Post.all
-  #   authorize @post
-  # end
-
+  
+  
   def show
   	@post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
+    # Post.order('created_at DESC').page(params[:page], per_page: 100)
   end
 
   def new

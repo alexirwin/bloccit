@@ -28,7 +28,16 @@ require 'faker'
  # The `save` method then saves this User to the database.
 
  # Create Posts
-50.times do 
+ # Create Topics
+ 15.times do
+   Topic.create!(
+     name:         Faker::Lorem.sentence,
+     description:  Faker::Lorem.paragraph
+   )
+ end
+ topics = Topic.all
+
+ 50.times do 
  Post.create!(
  	user: users.sample,
   topic:  topics.sample,
@@ -47,14 +56,7 @@ posts =Post.all
 	)
 end
 
- # Create Topics
- 15.times do
-   Topic.create!(
-     name:         Faker::Lorem.sentence,
-     description:  Faker::Lorem.paragraph
-   )
- end
- topics = Topic.all
+
 
 # Create an admin user
  admin = User.new(
@@ -89,4 +91,4 @@ puts "Seed finished"
 puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
-puts "#{Topic.count} topcis created"
+puts "#{Topic.count} topics created"

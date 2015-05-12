@@ -11,13 +11,19 @@ gem 'rails', '4.2.0'
 # added 4//3/1 https://github.com/rweng/pry-rails#installation
 gem 'pry-rails', :group => :development
 
- #Image upload helpers
-  gem 'carrierwave'
-  gem 'mini_magick'
-  
-  # Amazon S3 storage helper for image storage
-  gem "fog"
-# modified per bloc specs
+#Image upload helpers
+gem 'carrierwave'
+gem 'mini_magick'
+
+# Amazon S3 storage helper for image storage
+gem "fog"
+
+#Handles Pagination
+gem 'will_paginate', '~>3.0.5'
+
+#install redcarpet for markdown
+gem 'redcarpet'
+
 group :production do
    gem 'pg'
    gem 'rails_12factor'
@@ -26,12 +32,10 @@ group :production do
 end
 # end bloc modification
 
-#install redcarpet for markdown
-gem 'redcarpet'
-
 group :development do
-   gem 'sqlite3'
- end
+  gem 'sqlite3'
+end
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -79,11 +83,5 @@ group :development, :test do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
 
-#   #Image upload helpers
-#   gem 'carrierwave'
-#   gem 'mini_magick'
-  
-#   # Amazon S3 storage helper for image storage
-#   gem "fog", "~> 1.3.1"
 end
 

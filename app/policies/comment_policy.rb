@@ -2,12 +2,18 @@ class CommentPolicy < ApplicationPolicy
 	def index?
      true
    end
- 
+	
+	def show?
+     index?
+   end 
+
+
+ 	def new?
+     user.present?
+   end
+
    def create?
-     user.present? && user.admin?
+     new?
    end
  
-   def update?
-     create?
-   end
- end
+end

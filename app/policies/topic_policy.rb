@@ -11,4 +11,8 @@
    def update?
      create?
    end
+
+   def destroy?
+   	user.present? && user.admin?
+   end
  end

@@ -42,6 +42,23 @@ def index
     end
   end
 
+  def destroy
+    @topic = Topic.find(params[:id])
+    @topics = Topic.paginate(page: params[:page], per_page: 10)
+    # authorize @topics
+    # raise "made it here."
+    authorize @topic
+    @topic.destroy
+    if @topic.destroy
+      # redirect_to :index, notice: "Topic was deleted."
+      flash[:notice] = "Topic was deleted."
+      render "topics/index", locals: { topics: @topics}
+      # render :index
+    else
+      redirect_to @topic, flash[:error] = "There was an error saving the topic.  Please try again."
+    end
+  end
+
 
   private
 

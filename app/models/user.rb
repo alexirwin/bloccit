@@ -13,6 +13,10 @@ class User < ActiveRecord::Base
 
   def moderator?
   	role == 'moderator'
-  end 		
+  end
+
+  def recordOwner?
+    record.user  == user 
+  end
 
 end

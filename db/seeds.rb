@@ -38,12 +38,15 @@ require 'faker'
  
  # Create Posts
  50.times do 
-   Post.create!(
-   	user: users.sample,
+  post = Post.create!(
+    user: users.sample,
     topic:  topics.sample,
    	title: 	Faker::Lorem.sentence,
    	body: 	Faker::Lorem.paragraph
  	)
+  # set the created_at to a time within the past year
+  post.update_attributes!(created_at: rand(10.minutes .. 1.year).ago)
+  post.update_rank
 end
 posts =Post.all
 
@@ -57,7 +60,25 @@ posts =Post.all
 end
 comments = Comment.all
 
-# Create an admin user
+#Create Votes
+10000.times do
+  if rand(2) == 1
+    vote_value = 1
+  else
+    vote_value = -1
+  end
+  Vote.create!(
+    user: users.sample,
+    post: posts.sample,
+    value: vote_value
+  ) 
+end
+votes = Votes.all
+
+posts.each do |post|
+  post.update_rank
+end
+
 admin = User.new(
  name:     'Admin User',
  email:    'admin@example.com',
@@ -91,3 +112,4 @@ puts "#{User.count} users created"
 puts "#{Post.count} posts created"
 puts "#{Comment.count} comments created"
 puts "#{Topic.count} topics created"
+puts "#{Vote.count} votes created"

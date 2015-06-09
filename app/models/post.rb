@@ -30,7 +30,9 @@ class Post < ActiveRecord::Base
   end
 	
 	def update_rank
-  	age_in_days = (created_at - Time.new(1970,1,1)) / (60 * 60 * 24) # 1 day in seconds
+   	puts "made it here"
+   	puts id
+   	age_in_days = (created_at - Time.new(1970,1,1)) / (60 * 60 * 24) # 1 day in seconds
     new_rank = points + age_in_days
 		update_attribute(:rank, new_rank)
   end
@@ -39,4 +41,19 @@ class Post < ActiveRecord::Base
 		user.votes.create(value: 1, post: self)
   end
 
+  def save_with_initial_vote
+  	ActiveRecord::Base.transaction do
+	  	save	
+	  	if valid?
+				create_vote
+			end
+		end
+	end
+
+	# private
+	# def update_rank
+	#   	age_in_days = (created_at - Time.new(1970,1,1)) / (60 * 60 * 24) # 1 day in seconds
+	#     new_rank = points + age_in_days
+	# 		update_attribute(:rank, new_rank)
+	#   end
 end

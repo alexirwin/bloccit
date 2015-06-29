@@ -6,6 +6,7 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :comments
   has_many :votes
+  has_many :favorites, dependent: :destroy
 
   mount_uploader :avatar, AvatarUploader
 
@@ -19,6 +20,14 @@ class User < ActiveRecord::Base
 
   def recordOwner?
     record.user  == user 
+  end
+
+  def favorited(post)
+    favorites.where(post_id: post.id).first
+  end
+
+  def favorited(post)
+    favorites.where(post_id: post.id).first
   end
 
 end

@@ -1,5 +1,5 @@
 <%= content_tag :div, class: 'media', id: "comment-#{comment.id}" do %>
-   <%= link_to '#', class: 'pull-left' do %>
+   <%= link_to comment.user, class: 'pull-left' do %>
      <%= image_tag(comment.user.avatar.small.url) if comment.user.avatar? %>
    <% end %>
 	<div class="media-body">
@@ -12,7 +12,7 @@
      </div>
      <div class = "col-md-2">
      <% if policy(comment).destroy? %>
-        <%= link_to "Delete Comment", [@post, comment], method: :delete, class: 'btn btn-danger' %>
+        <%= link_to "Delete Comment", [comment.post, comment], method: :delete, class: 'btn btn-danger' %>
      <% end %>
     </div>
     

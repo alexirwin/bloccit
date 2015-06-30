@@ -11,7 +11,11 @@ require 'rails_helper'
        @user = authenticated_user(email_favorites: true)
        @other_user = authenticated_user
        @comment = Comment.new(body: 'My comment is really great', post: @post, user: @other_user)
-     end
+    end
+
+    # We don't need to change anything for this condition;
+    # The email_favorites attribute defaults to true
+    context "with user's permission" do
  
      it "sends an email to users who have favorited the post" do
        favorite = @user.favorites.create(post: @post)

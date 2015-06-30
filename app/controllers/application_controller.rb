@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
     redirect_to root_url, alert: exception.message
   end
   
-  def flash_attack 
-       flash[:notice] = "This is a flash notice!"
+  def after_sign_in_path_for(resource)
+    topics_path
   end
 
  protected

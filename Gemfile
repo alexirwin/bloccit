@@ -2,6 +2,10 @@ source 'https://rubygems.org'
 #import bootstrap css framework
 gem 'bootstrap-sass'
 
+gem 'puma', group: :production
+gem 'thin', group: :development
+
+
 gem 'newrelic_rpm'
 
 ###add figaro to secure environmental variables (API keys, passwords, etc.)

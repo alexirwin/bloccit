@@ -32,6 +32,7 @@ gem 'redcarpet'
 
 group :test do
   gem 'capybara'
+  gem 'factory_girl_rails', '~> 4.0'
   end
 
 group :production do
@@ -44,6 +45,7 @@ end
 
 group :development do
   gem 'sqlite3'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 
 # Use SCSS for stylesheets

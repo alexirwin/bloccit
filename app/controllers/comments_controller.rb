@@ -10,7 +10,8 @@ class CommentsController < ApplicationController
       redirect_to [@topic, @post]
     else
     	flash[:error] = "There was an error saving the comment.  Please try again."
-      render "posts/show", locals: { topic: @topic, post: @post}
+      redirect_to [@topic, @post]
+      #render "posts/show", locals: { topic: @topic, post: @post}
     end
 
   end
@@ -25,11 +26,15 @@ class CommentsController < ApplicationController
     @comment.destroy
     if @comment.destroy
       flash[:notice] = "Comment was deleted."
-      redirect_to [@topic, @post]
+      #redirect_to [@topic, @post]
     else
       flash[:error] = "There was an error deleting the comment.  Please try again."
-      render "posts/show", locals: { topic: @topic, post: @post}
+      #render "posts/show", locals: { topic: @topic, post: @post}
     end
+        respond_to do |format|
+       format.html
+       format.js
+     end
   end
 	
 	private
